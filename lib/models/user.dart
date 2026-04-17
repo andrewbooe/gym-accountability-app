@@ -1,9 +1,9 @@
-class Member {
+class User {
   final String name;
   final int weeklyProgress;
   final int weeklyGoal;
 
-  const Member({
+  const User({
     required this.name,
     required this.weeklyProgress,
     required this.weeklyGoal,
@@ -13,12 +13,12 @@ class Member {
 
   bool get isGoalMet => weeklyProgress >= weeklyGoal;
 
-  Member copyWith({
+  User copyWith({
     String? name,
     int? weeklyProgress,
     int? weeklyGoal,
   }) {
-    return Member(
+    return User(
       name: name ?? this.name,
       weeklyProgress: weeklyProgress ?? this.weeklyProgress,
       weeklyGoal: weeklyGoal ?? this.weeklyGoal,

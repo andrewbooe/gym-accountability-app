@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../models/member.dart';
-import '../screens/member_feed_screen.dart';
+import '../models/user.dart';
+import '../screens/user_feed_screen.dart';
 
 class MemberRow extends StatelessWidget {
-  final Member member;
+  final User member;
 
   const MemberRow({
     super.key,
@@ -17,7 +17,7 @@ class MemberRow extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MemberFeedScreen(member: member),
+            builder: (context) => UserFeedScreen(user: member),
           ),
         );
       },

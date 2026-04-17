@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import '../models/models.dart';
+import '../models/feed_item.dart';
+import '../models/user.dart';
 import '../widgets/check_in_card.dart';
 
-class MemberFeedScreen extends StatelessWidget {
-  final Member member;
+class UserFeedScreen extends StatelessWidget {
+  final User user;
 
-  const MemberFeedScreen({
+  const UserFeedScreen({
     super.key,
-    required this.member,
+    required this.user,
   });
 
   @override
@@ -19,10 +20,10 @@ class MemberFeedScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(member.name),
+        title: Text(user.name),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: member.weeklyProgress == 0
+      body: user.weeklyProgress == 0
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -45,14 +46,14 @@ class MemberFeedScreen extends StatelessWidget {
             )
           : ListView.builder(
               padding: const EdgeInsets.all(16),
-              itemCount: member.weeklyProgress,
+              itemCount: user.weeklyProgress,
               itemBuilder: (context, index) {
                 // Reverse order: latest first
-                final reversedIndex = member.weeklyProgress - 1 - index;
+                final reversedIndex = user.weeklyProgress - 1 - index;
                 final checkInDate = startOfWeek.add(Duration(days: reversedIndex));
                 final checkIn = CheckIn(
                   date: checkInDate,
-                  member: member,
+                  user: user,
                   dayNumber: reversedIndex + 1,
                 );
                 return CheckInCard(checkIn: checkIn);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/models.dart';
+import '../models/feed_item.dart';
+import '../models/user.dart';
 import '../widgets/check_in_button.dart';
 import '../widgets/check_in_detail_sheet.dart';
 import '../widgets/money_display.dart';
@@ -18,7 +19,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
   final int _checkedDays = 3; // Set to 3 for testing
 
   // Mock current user member for check-ins
-  final Member _currentUser = const Member(
+  final User _currentUser = const User(
     name: 'John Doe',
     weeklyProgress: 3,
     weeklyGoal: 7,
@@ -37,7 +38,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
 
     final checkIn = CheckIn(
       date: checkInDate,
-      member: _currentUser,
+      user: _currentUser,
       dayNumber: dayIndex + 1,
     );
 

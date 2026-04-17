@@ -27,7 +27,7 @@ class GroupCard extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          '${group.memberCount} members',
+          '${group.userCount} members',
           style: TextStyle(
             color: Colors.grey[600],
             fontSize: 14,
@@ -49,7 +49,7 @@ class GroupCard extends StatelessWidget {
         ),
         children: [
           const Divider(height: 1),
-          ...group.members.map((member) => MemberRow(member: member)),
+          ...group.users.map((member) => MemberRow(member: member)),
         ],
       ),
     );
